@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -120,3 +121,131 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | GoodNews</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+     <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <span class="smiley">☺</span> <strong>Biggboy</strong>News
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="#">Contact</a>
+                <a href="posts.html">Post</a>
+                <a href="privacy.html">Privacy Policy</a>
+                
+            </nav>
+        </div>
+    </header>
+
+<h2>Contact Form</h2>
+
+<form id="contactForm">
+
+    <input type="text" id="name" placeholder="Full Name" required><br><br>
+
+    <input type="email" id="email" placeholder="Email Address" required><br><br>
+
+    <select id="subject">
+        <option value="story">Submit a Story</option>
+        <option value="advertising">Advertising</option>
+        <option value="feedback">General Feedback</option>
+    </select><br><br>
+
+    <textarea id="message" placeholder="Your message here..." required></textarea><br><br>
+
+    <button type="submit">Send Message</button>
+
+</form>
+ <footer class="footer">
+    <div class="footer-container">
+
+      <div class="footer-left">
+        <p>
+          Biggboy News empowers the generation of tomorrow
+          for a brighter future and hope for every individual.
+        </p>
+        <p class="copyright">Biggboy News Ltd © 2026</p>
+      </div>
+
+      <div class="footer-links">
+         <a href="index.html">About</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+         <a href="posts.html">About</a>
+        <a href="#">Terms & Conditions</a>
+       <a href="privacy.html">Privacy Policy</a>
+      </div>
+
+      <div class="footer-social">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+      </div>
+
+    </div>
+  </footer>
+
+<!-- ✅ MAIN JAVASCRIPT INSIDE SAME FILE -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const form = document.getElementById("contactForm");
+
+    form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const data = {
+            name: document.getElementById("name").value.trim(),
+            email: document.getElementById("email").value.trim(),
+            subject: document.getElementById("subject").value,
+            message: document.getElementById("message").value.trim()
+        };
+
+        if (!data.name || !data.email || !data.message) {
+            alert("Please fill all fields");
+            return;
+        }
+
+        try {
+            const response = await fetch("https://ayushsharma2453.onrender.com/contact",{
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                alert("✅ Message saved to database!");
+                form.reset();
+            } else {
+                alert("❌ " + result.message);
+            }
+
+        } catch (error) {
+            console.error(error);
+            alert("❌ Server not running");
+        }
+    });
+
+});
+</script>
+
+</body>
+</html>
+
+
+>>>>>>> 076de289f313fefc453c0f437cfe8a5981f6eaae
