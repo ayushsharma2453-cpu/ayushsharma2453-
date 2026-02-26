@@ -147,7 +147,7 @@
                         Biggboy News empowers the generation of tomorrow
                         for a brighter future and hope for every individual.
                     </p>
-                    <p class="copyright">Biggboy News Ltd © 2022</p>
+                    <p class="copyright">Biggboy News Ltd © 2026</p>
                 </div>
 
                 <div class="footer-links">
@@ -169,4 +169,31 @@
 
     </main>
 </body>
+<script>
+document.getElementById("subscribeForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+
+    try {
+        // Email backend ko bhejna
+       await fetch("https://ayushsharma2453-1.onrender.com", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ email })
+        });
+
+        // YouTube open hoga
+        window.open("www.youtube.com/@Nextgnze", "_blank");
+
+        alert("Subscribed successfully!");
+        document.getElementById("subscribeForm").reset();
+
+    } catch (err) {
+        alert("Server error. Try again.");
+    }
+});
+</script>
 </html>
