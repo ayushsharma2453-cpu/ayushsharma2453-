@@ -170,31 +170,31 @@
     </main>
 </body>
 <script>
-document.getElementById("subscribeForm").addEventListener("submit", async function(e) {
-    e.preventDefault(); // form redirect band
+const form = document.getElementById("subscribeForm");
+
+form.addEventListener("submit", function(e) {
+    e.preventDefault(); // redirect band
 
     const email = document.getElementById("email").value;
 
-    try {
-        await fetch("https://ayushsharma2453-1.onrender.com/subscribe", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ email })
-        });
-
+    fetch("https://ayushsharma2453-1.onrender.com/subscribe", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email })
+    })
+    .then(() => {
         alert("Subscribed successfully!");
 
-        // YouTube open hoga
-        window.open("https://www.youtube.com/@Nextgnz");
+        // 👇 same tab me YouTube open (popup block nahi hoga)
+        window.location.href = "https://www.youtube.com/@Nextgnz";
 
-        // form reset
-        document.getElementById("subscribeForm").reset();
-
-    } catch (error) {
+        form.reset();
+    })
+    .catch(() => {
         alert("Server error");
-    }
+    });
 });
 </script>
 </html>
