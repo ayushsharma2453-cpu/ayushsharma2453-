@@ -171,13 +171,12 @@
 </body>
 <script>
 document.getElementById("subscribeForm").addEventListener("submit", async function(e) {
-    e.preventDefault();
+    e.preventDefault(); // form redirect band
 
     const email = document.getElementById("email").value;
 
     try {
-        // Email backend ko bhejna
-       await fetch("https://ayushsharma2453-1.onrender.com", {
+        await fetch("https://ayushsharma2453-1.onrender.com/subscribe", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -185,14 +184,16 @@ document.getElementById("subscribeForm").addEventListener("submit", async functi
             body: JSON.stringify({ email })
         });
 
-        // YouTube open hoga
-        window.open("www.youtube.com/@Nextgnze", "_blank");
-
         alert("Subscribed successfully!");
+
+        // YouTube open hoga
+        window.open("https://www.youtube.com/@Nextgnz", "_blank");
+
+        // form reset
         document.getElementById("subscribeForm").reset();
 
-    } catch (err) {
-        alert("Server error. Try again.");
+    } catch (error) {
+        alert("Server error");
     }
 });
 </script>
