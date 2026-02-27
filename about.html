@@ -1,69 +1,133 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GoodNews | The #1 Source for Good News</title>
+
+    <title>Biggboy News — Positive Stories & Updates</title>
+
+    <!-- SEO -->
+    <meta name="description" content="Biggboy News shares positive stories, sports updates, and inspiring news from around the world.">
+
+    <!-- AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5907416090109753"
+     crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-    <header class="site-header">
-        <div class="container nav-container">
-            <div class="logo">
-                <span class="smiley">☺</span> <strong>Biggboy</strong>News
-            </div>
-            <nav class="main-nav">
-                <a href="index.html">Home</a>
-                <a href="#">About</a>
-                <a href="contact.html">Contact</a>
-                <a href="posts.html">Post</a>
-            </nav>
-            </nav>
+<header class="site-header">
+    <div class="container nav-container">
+        <div class="logo">
+            <span class="smiley">☺</span> <strong>Biggboy</strong>News
         </div>
-    </header>
 
-    <main class="container">
-        <section class="content-section">
-            <h2 class="section-title">Top Stories</h2>
-            <div class="posts-grid">
-                <article class="post-card">
-                    <div class="img-tint-wrapper">
-                        <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=800" alt="Post Image">
-                    </div>
-                    <p class="post-category">COMMUNITY • FEATURED</p>
-                    <h3>Helping neighbors during the winter season</h3>
-                    <p class="post-excerpt">Local volunteers gather to provide warmth and supplies to those in need.</p>
-                    <time>10/25/2022</time>
-                </article>
-                </div>
-        </section>
-    </main>
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="posts.html">Posts</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy Policy</a>
+        </nav>
+    </div>
+</header>
 
-    <footer class="site-footer">
-        <div class="container footer-grid">
-            <div class="footer-brand">
-                <div class="logo">
-                    <span class="smiley">☺</span> <strong>Biggboy</strong>News
-                </div>
-                <p>Spreading positivity, one story at a time. Join our community of optimists.</p>
+<main class="container">
+
+    <!-- About Section -->
+    <section class="content-section">
+        <h2 class="section-title">Welcome to Biggboy News</h2>
+        <p>
+            Biggboy News delivers positive and inspiring stories from around the world.
+            Our goal is to highlight achievements, sports victories, and real stories that bring hope and motivation.
+        </p>
+    </section>
+
+    <!-- Articles -->
+    <section class="content-section">
+        <h2 class="section-title">Top Stories</h2>
+
+        <article class="post-card">
+            <div class="img-tint-wrapper">
+                <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=800" alt="Community support during winter">
             </div>
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
 
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 BiggboyNews. Created with optimism.</p>
-        </div>
-    </footer>
+            <p class="post-category">COMMUNITY</p>
 
-    <script src="script.js"></script>
+            <h3>Helping Neighbors During Winter Season</h3>
+
+            <p class="post-excerpt">
+                Volunteers across the city are providing warm clothes and food support
+                to families affected by extreme winter conditions. Community participation
+                has increased significantly this year.
+            </p>
+
+            <time>2026</time>
+        </article>
+
+    </section>
+
+    <!-- Newsletter -->
+    <section class="content-section">
+        <h2 class="section-title">Subscribe for Updates</h2>
+        <p>Get positive stories directly in your inbox.</p>
+
+        <form id="subscribeForm">
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-left">
+            <p>Biggboy News empowers the generation of tomorrow.</p>
+            <p class="copyright">Biggboy News Ltd © 2026</p>
+        </div>
+
+        <div class="footer-links">
+            <a href="#">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="posts.html">Post</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
+
+        <div class="footer-social">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+const form = document.getElementById("subscribeForm");
+
+form.addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+
+    try {
+        await fetch("https://ayushsharma2453-1.onrender.com/subscribe", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email })
+        });
+
+        window.location.href = "https://www.youtube.com/@Nextgnz";
+
+    } catch {
+        alert("Server error");
+    }
+});
+</script>
+
 </body>
 </html>
