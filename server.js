@@ -1,12 +1,17 @@
 const express = require("express");
 const cors = require("cors");
 const { MongoClient, ServerApiVersion } = require("mongodb");
+const path = require("path"); // ✅ added
 
 const app = express();
 const PORT = 3000;
 
 app.use(cors());
 app.use(express.json());
+
+// ✅ IMPORTANT — allows ads.txt and HTML files to be accessible
+app.use(express.static(__dirname));
+
 
 // ✅ MongoDB Atlas connection
 const uri = "mongodb+srv://ayushsharma2453_db_user:Ayushsh@cluster0.rk68c4o.mongodb.net/biggboynewsDB?appName=Cluster0";
